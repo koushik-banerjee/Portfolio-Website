@@ -1,5 +1,5 @@
 
-# DSFolio
+# Koushik Banerjee (PortFolio)
 
 <center>
     <img src="/public/image.png" alt="Koushik Portfolio" />
