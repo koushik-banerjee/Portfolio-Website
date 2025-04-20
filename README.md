@@ -2,7 +2,7 @@
 # DSFolio
 
 <center>
-    <img src="/public/cover.png" alt="DSFolio" />
+    <img src="/public/image.png" alt="DSFolio" />
 </center>
 
 <center>
