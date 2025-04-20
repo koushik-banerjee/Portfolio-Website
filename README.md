@@ -2,7 +2,7 @@
 # DSFolio
 
 <center>
-    <img src="/public/image.png" alt="DSFolio" />
+    <img src="/public/image.png" alt="Koushik Portfolio" />
 </center>
 
 <center>
@@ -17,21 +17,21 @@
 ## Installation
 1. Clone the repository
     ```bash 
-    git clone https://github.com/dsbalico/dsfolio-v1.git
+    git clone https://github.com/koushik-banerjee/Portfolio-Website.git
     ```
 2. Change into the project directory
     ```bash
-    cd dsfolio-v1
+    cd Portfolio-Website
     ```
 3. Install dependencies
     ```bash
-    yarn install 
+    npm install 
     ```
 
 ## Usage
 To start the development server and view the project in your browser, run the following command:
 ```bash
-yarn dev
+npm run dev
 ```
 Visit http://localhost:5173/ in your browser
 
