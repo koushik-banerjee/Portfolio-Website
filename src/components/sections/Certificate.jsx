@@ -74,7 +74,7 @@ function Certificate() {
                       href={cert.link}
                       target="_blank"
                       rel="noreferrer"
-                      className="hs-tooltip-toggle text-center text-gray-800 dark:text-white hover:text-red-800 hover:dark:text-red-500"
+                      className="hs-tooltip-toggle text-center text-white hover:text-red-800 hover:dark:text-red-500"
                     >
                       <p className="transition duration-700 px-6 font-bold text-lg">
                         {cert.title}
@@ -102,7 +102,7 @@ function Certificate() {
           className="hs-carousel-prev absolute inset-y-0 start-0 inline-flex justify-center items-center w-[46px] h-full text-gray-800 hover:bg-gray-800/10 rounded-s-lg dark:text-white dark:hover:bg-white/10"
         >
           <svg
-            className="size-5"
+            className="size-5 text-white"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -116,7 +116,7 @@ function Certificate() {
           className="hs-carousel-next absolute inset-y-0 end-0 inline-flex justify-center items-center w-[46px] h-full text-gray-800 hover:bg-gray-800/10 rounded-e-lg dark:text-white dark:hover:bg-white/10"
         >
           <svg
-            className="size-5"
+            className="size-5 text-white"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"

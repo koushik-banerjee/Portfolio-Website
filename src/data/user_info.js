@@ -39,7 +39,7 @@ const info = {
             image:"chatroom.png",
 			description: "Chatroom is a simple online chatting web application where you can create chat rooms and have a fun conversation with a group of people.",
 			technologies: "React, Tailwind, Firebase",
-			github: "https://github.com/dsbalico/chatroom",
+			github: "https://github.com/koushik-banerjee/simple-chat-app",
             link: "https://thechatroom.netlify.app/"
 		},
     ],
