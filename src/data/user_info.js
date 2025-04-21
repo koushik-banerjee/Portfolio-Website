@@ -84,7 +84,7 @@ const info = {
         {
             title: "Server side JavaScript with Node.js",
             description: "Provided by Coursera & Authorized by NIIT",
-            icon: "Coursera",
+            icon: "NIIT",
             link: "https://www.coursera.org/account/accomplishments/verify/BUDGRY9EMJDB?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course",
         },
         {
@@ -122,19 +122,8 @@ const info = {
             description: "Provided by Coursera & Authorized by Google",
             icon: "Google",
             link: "https://coursera.org/share/0ab75be93b8c042027bd4715c5a487d1"
-        },
-        {
-            title: "Front-End Developer (React) Certificate",
-            description: "Provided by HackerRank",
-            icon: "hackerrank",
-            link: "https://www.hackerrank.com/certificates/631ac3acf267"
-        },
-        {
-            title: "Software Engineer Certificate",
-            description: "Provided by HackerRank",
-            icon: "hackerrank",
-            link: "https://www.hackerrank.com/certificates/efdbdd44eb7d"
         }
+
     ],
 
     // ============ CONTACT ============
