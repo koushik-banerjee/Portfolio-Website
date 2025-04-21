@@ -7,8 +7,17 @@ export default {
     "./node_modules/preline/preline.js",
   ],
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        spinOnce: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
+      },
+      animation: {
+        spinOnce: 'spinOnce 1s ease-in-out',
+      },
+    },
   },
-  // eslint-disable-next-line no-undef
   plugins: [require("preline/plugin")],
 };

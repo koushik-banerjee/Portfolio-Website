@@ -2,7 +2,7 @@ import { CiLink } from "react-icons/ci";
 
 function Project({ title, description, technologies, link, github }) {
   return (
-    <div className="hover:bg-zinc-100 hover:dark:bg-zinc-900 transition-all duration-300 p-6 md:rounded-xl">
+    <div className="bg-zinc-100  dark:bg-zinc-900 p-6 md:rounded-xl hover:-translate-y-1 transition-all duration-300 ">
       <div className="flex gap-2 overflow-x-scroll py-2">
         {/* =========== TECHNOLOGIES USED =========== */}
         {technologies.split(",").map((tech, index) => (

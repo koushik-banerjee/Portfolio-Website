@@ -4,7 +4,7 @@ const info = {
         name: "Koushik Banerjee",
         description: "I am a software engineer with expertise in full-stack web development. I have experience in building scalable, secure and reliable web applications using various frameworks and technologies. I enjoy solving complex problems and learning new skills. I am passionate about creating high-quality code that follows best practices and industry standards.",
         role: "Full-Stack Developer",
-        photo: "../../public/photo.webp",
+        photo: "https://i.pinimg.com/736x/95/26/8f/95268fac8f90eb36da99728a0a194a6f.jpg",
         email: "banerjeekoushik04@gmail.com",
     },
 
@@ -82,46 +82,46 @@ const info = {
     // ============ CERTIFICATES ============
     certificates: [
         {
-            title: "Foundations of Cybersecurity Certificate",
-            description: "Provided by Coursera & Authorized by IBM",
-            icon: "ibm",
-            link: "https://www.coursera.org/account/accomplishments/records/SF2PPLNVTH6R",
+            title: "Server side JavaScript with Node.js",
+            description: "Provided by Coursera & Authorized by NIIT",
+            icon: "Coursera",
+            link: "https://www.coursera.org/account/accomplishments/verify/BUDGRY9EMJDB?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course",
         },
         {
-            title: "Git and GitHub Essentials",
-            description: "Provided by Coursera & Authorized by IBM",
-            icon: "ibm",
-            link: "https://www.credly.com/badges/fa00026a-4db5-4269-ab4f-340f5382ac03",
+            title: "HTML, CSS, and Javascript for Web Developers",
+            description: "Provided by Coursera & Authorized by Johns Hopkins University",
+            icon: "Johns Hopkins University",
+            link: "https://www.coursera.org/account/accomplishments/verify/EEYT5ZJV7UV5?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course",
         },
         {
-            title: "Crash Course on Python Certificate",
+            title: "Dynamic Programming, Greedy Algorithms",
+            description: "Provided by Coursera & Authorized by University of Colorado Boulder",
+            icon: "University of Colorado Boulder",
+            link: "https://coursera.org/share/d5f42624bdbd39008cf984cfb86a80a9"
+        },
+        {
+            title: "Approximation Algorithms and Linear Programming",
+            description: "Provided by Coursera & Authorized by University of Colorado Boulder",
+            icon: "University of Colorado Boulder",
+            link: "https://coursera.org/share/ace668f8ce7869b2c4cc729637f020c1"
+        },
+        {
+            title: "Introduction to Large Language Models",
+            description: "Provided by Coursera & Authorized by Google Cloud",
+            icon: "Google Cloud",
+            link: "https://coursera.org/share/cdabe9a80619acd645721a4a018fb671"
+        },
+        {
+            title: "Introduction to Hardware and Operating Systems",
+            description: "Provided by Coursera & Authorized by IBM",
+            icon: "ibm",
+            link: "https://www.coursera.org/account/accomplishments/verify/TF6DSPDRY95L?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course"
+        },
+        {
+            title: "The Bits and Bytes of Computer Networking",
             description: "Provided by Coursera & Authorized by Google",
-            icon: "google",
-            link: "https://www.coursera.org/account/accomplishments/verify/S9773NBEK4S6"
-        },
-        {
-            title: "Technical Support Fundamentals Certificate",
-            description: "Provided by Coursera & Authorized by Google",
-            icon: "google",
-            link: "https://www.coursera.org/account/accomplishments/verify/P9EH5HNYRESZ"
-        },
-        {
-            title: "Introduction to Web Development with HTML, CSS, JavaScript Certificate",
-            description: "Provided by Coursera & Authorized by IBM",
-            icon: "ibm",
-            link: "https://www.credly.com/badges/7b88eb00-e1f9-4ae6-be2a-3b2ae8983c44"
-        },
-        {
-            title: "Introduction to Cloud Computing Certificate",
-            description: "Provided by Coursera & Authorized by IBM",
-            icon: "ibm",
-            link: "https://www.credly.com/badges/514b694a-8dc4-418d-9af4-61908dc29ca8"
-        },
-        {
-            title: "Django Application Development with SQL and Databases Certificate",
-            description: "Provided by Coursera & Authorized by IBM",
-            icon: "ibm",
-            link: "https://www.credly.com/badges/a36dd8a3-1050-4c4e-bcef-97b39babf55e"
+            icon: "Google",
+            link: "https://coursera.org/share/0ab75be93b8c042027bd4715c5a487d1"
         },
         {
             title: "Front-End Developer (React) Certificate",
@@ -140,7 +140,7 @@ const info = {
     // ============ CONTACT ============
     contact: {
         title: "Let's Get in Touch: Ways to Connect with Me",
-        description: "Thank you for your interest in getting in touch with me. I welcome your feedback, questions, and suggestions. If you have a specific question or comment, please feel free to email me directly at danielshan.balico@gmail.com. I make an effort to respond to all messages within 24 hours, although it may take me longer during busy periods. Finally, if you prefer to connect on social media, you can connect with me using the social media links below.",
+        description: "Thank you for your interest in getting in touch with me. I welcome your feedback, questions, and suggestions. If you have a specific question or comment, please feel free to email me directly at banerjeekoushik04@gmail.com. I make an effort to respond to all messages within 24 hours, although it may take me longer during busy periods. Finally, if you prefer to connect on social media, you can connect with me using the social media links below.",
     },
 
     // ============ FOOTER ============
