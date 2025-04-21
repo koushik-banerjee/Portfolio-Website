@@ -4,41 +4,38 @@ import { SiHackerrank, SiIbm } from "react-icons/si";
 import user_info from "../../data/user_info.js";
 
 function getCertificateIcon(icon) {
-    if (icon === "ibm") {
-      return <SiIbm className="text-blue-500 absolute right-5 top-0 text-5xl" />;
-    } else if (icon === "Google" || icon === "Google Cloud") {
-      return <FcGoogle className="absolute right-5 top-3 text-3xl" />;
-    } else if (icon === "NIIT") {
-      return (
-        <img
-          src="./niit.png"
-          alt="Coursera"
-          className="absolute right-5 top-3 w-12 h-8 object-contain"
-        />
-      );
-    } 
-    else if(icon === "Johns Hopkins University"){
-        return (
-            <img
-          src="./johns.png"
-          alt="Coursera"
-          className="absolute right-5 top-3 w-12 h-8 object-contain"
-        />
-        );
-    } 
-    else if(icon === "University of Colorado Boulder"){
-        return (
-            <img
-          src="./colorado.png"
-          alt="Coursera"
-          className="absolute right-5 top-3 w-12 h-8 object-contain"
-        />
-        );
-    } 
-    else {
-      return <SiHackerrank className="text-green-500 absolute right-5 top-3 text-3xl" />;
-    }
+  if (icon === "ibm") {
+    return <SiIbm className="text-blue-500 absolute right-5 top-0 text-5xl" />;
+  } else if (icon === "Google" || icon === "Google Cloud") {
+    return <FcGoogle className="absolute right-5 top-3 text-3xl" />;
+  } else if (icon === "NIIT") {
+    return (
+      <img
+        src="./niit.png"
+        alt="NIIT"
+        className="absolute right-5 top-3 w-12 h-8 object-contain"
+      />
+    );
+  } else if (icon === "Johns Hopkins University") {
+    return (
+      <img
+        src="./johns.png"
+        alt="Johns Hopkins"
+        className="absolute right-5 top-3 w-12 h-8 object-contain"
+      />
+    );
+  } else if (icon === "University of Colorado Boulder") {
+    return (
+      <img
+        src="./colorado.png"
+        alt="University of Colorado"
+        className="absolute right-5 top-3 w-12 h-8 object-contain"
+      />
+    );
+  } else {
+    return <SiHackerrank className="text-green-500 absolute right-5 top-3 text-3xl" />;
   }
+}
 
 function Certificate() {
   return (
@@ -57,9 +54,21 @@ function Certificate() {
           <div className="hs-carousel-body absolute top-0 bottom-0 start-0 flex flex-nowrap transition-transform duration-700 opacity-0">
             {user_info.certificates.map((cert, index) => (
               <div className="hs-carousel-slide relative w-full" key={index}>
+                {/* Slide background with dark overlay */}
+                <div className="absolute inset-0">
+                  <div
+                    className="w-full h-full bg-cover bg-center"
+                    style={{ backgroundImage: `url(${cert.image})` }}
+                  >
+                    <div className="w-full h-full bg-black opacity-80" />
+                  </div>
+                </div>
+
+                {/* Certificate icon */}
                 {getCertificateIcon(cert.icon)}
 
-                <div className="flex justify-center items-center h-full bg-gray-100 p-6 dark:bg-neutral-900">
+                {/* Slide content */}
+                <div className="flex justify-center items-center h-full relative z-10 p-6">
                   <div className="hs-tooltip [--placement:bottom] inline-block">
                     <a
                       href={cert.link}
