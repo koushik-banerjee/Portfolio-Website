@@ -7,9 +7,9 @@ function Hero() {
       <div className="self-center">
         <div className="hs-tooltip [--placement:right] w-20 hs-tooltip-toggle">
           <img
-            src={user_info.main.photo}
+            src="../../../public/photo.webp"
             className="rounded-full mb-6 lg:hidden"
-            alt="Daniel Shan Balico Graduation Picture"
+            alt="Koushik Banerjee"
           />
 
           {/* =========== TOOLTIP TEXT =========== */}

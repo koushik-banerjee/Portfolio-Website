@@ -4,7 +4,7 @@ const info = {
         name: "Koushik Banerjee",
         description: "I am a software engineer with expertise in full-stack web development. I have experience in building scalable, secure and reliable web applications using various frameworks and technologies. I enjoy solving complex problems and learning new skills. I am passionate about creating high-quality code that follows best practices and industry standards.",
         role: "Full-Stack Developer",
-        photo: "../photo.webp",
+        photo: "../../public/photo.webp",
         email: "banerjeekoushik04@gmail.com",
     },
 
@@ -19,7 +19,7 @@ const info = {
     projects: [
         {
 			title: "Modern Fashion Store",
-			description: "•	Developed an e-commerce platform wherein users can buy oversized printed T-shirts.",
+			description: "Developed an e-commerce platform wherein users can buy oversized printed T-shirts.",
             technologies: "React, MongoDb, Express, Node",
 			github: "https://github.com/koushik-banerjee/modern-Fashion-Store",
             link: "https://github.com/koushik-banerjee/modern-Fashion-Store"
