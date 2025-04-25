@@ -31,8 +31,8 @@ function Homepage() {
   }, [location.pathname]);
 
   return (
-    <div className="bg-zinc-100 p-6 dark:bg-zinc-900">
-      <div className="xl:w-[1200px] md:mx-auto rounded-2xl border border-white h-full border-x dark:border-zinc-800 bg-white dark:bg-zinc-950">
+    <div className="bg-zinc-100 md:p-2 lg:p-6 dark:bg-zinc-900">
+      <div className="xl:w-[1200px] md:mx-auto md:rounded-2xl border border-white h-full border-x dark:border-zinc-800 bg-white dark:bg-zinc-950">
         <ToggleTheme switchTheme={switchTheme} theme={theme}/>
 
         <motion.div
