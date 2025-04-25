@@ -2,53 +2,104 @@ import user_info from "../../data/user_info.js";
 import { FaSquareXTwitter, FaLinkedin } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import emailjs from '@emailjs/browser';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Contact() {
-  // Form State
+  const formRef = useRef();
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    message: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formStatus, setFormStatus] = useState(null);
 
-  // Handle form input change
+  // Initialize EmailJS
+  useEffect(() => {
+    emailjs.init("C_YyGp_TcFPgYx-zu");
+  }, []);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prevData => ({
+    setFormData((prevData) => ({
       ...prevData,
-      [name]: value
+      [name]: value,
     }));
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     setIsSubmitting(true);
-    setFormStatus(null);
 
-    // Add your form submission logic here, like using an API or email service
-    // Simulating a form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setFormStatus("Thank you for reaching out! I'll get back to you soon.");
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
+    try {
+      // Get current time
+      const now = new Date();
+      const time = now.toLocaleString();
+
+      const templateParams = {
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
+        time: time
+      };
+
+      await emailjs.send(
+        'service_w62ncsa',
+        'template_wmjxkxq',
+        templateParams,
+        'C_YyGp_TcFPgYx-zu'
+      );
+
+      // Show success toast
+      toast.success('Message sent successfully!', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
       });
-    }, 2000); // Simulated delay
+
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error('Error sending email:', error);
+      // Show error toast
+      toast.error('Failed to send message.', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <section id="contact" className="mt-16 pt-12 px-6 lg:px-24">
-      {/* =========== TITLE =========== */}
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
+      
+      {/* TITLE */}
       <h4 className="text-5xl font-bold text-zinc-900 dark:text-zinc-100">
         Let&apos;s Get in Touch:{" "}
         <span className="text-red-800 dark:text-red-500">
@@ -56,118 +107,94 @@ function Contact() {
         </span>
       </h4>
 
-      {/* =========== DESCRIPTION =========== */}
-      <p className="mt-8 leading-7 text-base text-zinc-600 dark:text-zinc-300 font-light">
-        {user_info.contact.description}
-      </p>
+      {/* DESCRIPTION + FORM */}
+      <div className="mt-12 flex flex-col lg:flex-row gap-12">
+        {/* Description */}
+        <p className="leading-7 text-base text-zinc-600 dark:text-zinc-300 font-light w-full lg:w-1/2">
+          {user_info.contact.description}
+        </p>
 
-      {/* =========== CONTACT FORM =========== */}
-      <form onSubmit={handleSubmit} className="mt-12">
-        {/* Name */}
-        <div className="mb-4">
-          <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            value={formData.name}
-            onChange={handleChange}
-            className="w-full p-4 border border-zinc-300 rounded-md dark:bg-zinc-950 dark:border-zinc-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-red-800 dark:focus:ring-red-500"
-            required
-          />
-        </div>
+        {/* Form */}
+        <form ref={formRef} onSubmit={handleSubmit} className="w-full lg:w-1/2">
+          <div className="mb-4">
+            <input
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              value={formData.name}
+              onChange={handleChange}
+              className="w-full p-4 border border-zinc-300 rounded-md dark:bg-zinc-950 dark:border-zinc-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-red-800 dark:focus:ring-red-500"
+              required
+            />
+          </div>
 
-        {/* Email */}
-        <div className="mb-4">
-          <input
-            type="email"
-            name="email"
-            placeholder="Your Email"
-            value={formData.email}
-            onChange={handleChange}
-            className="w-full p-4 border border-zinc-300 rounded-md dark:bg-zinc-950 dark:border-zinc-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-red-800 dark:focus:ring-red-500"
-            required
-          />
-        </div>
+          <div className="mb-4">
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              value={formData.email}
+              onChange={handleChange}
+              className="w-full p-4 border border-zinc-300 rounded-md dark:bg-zinc-950 dark:border-zinc-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-red-800 dark:focus:ring-red-500"
+              required
+            />
+          </div>
 
-        {/* Subject */}
-        <div className="mb-4">
-          <input
-            type="text"
-            name="subject"
-            placeholder="Subject"
-            value={formData.subject}
-            onChange={handleChange}
-            className="w-full p-4 border border-zinc-300 rounded-md dark:bg-zinc-950 dark:border-zinc-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-red-800 dark:focus:ring-red-500"
-            required
-          />
-        </div>
+          <div className="mb-4">
+            <textarea
+              name="message"
+              placeholder="Your Message"
+              value={formData.message}
+              onChange={handleChange}
+              className="w-full p-4 border border-zinc-300 rounded-md dark:bg-zinc-950 dark:border-zinc-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-red-800 dark:focus:ring-red-500"
+              required
+            ></textarea>
+          </div>
 
-        {/* Message */}
-        <div className="mb-4">
-          <textarea
-            name="message"
-            placeholder="Your Message"
-            value={formData.message}
-            onChange={handleChange}
-            className="w-full p-4 border border-zinc-300 rounded-md dark:bg-zinc-950 dark:border-zinc-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-red-800 dark:focus:ring-red-500"
-            required
-          ></textarea>
-        </div>
+          <div className="mt-4">
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="px-6 py-3 bg-red-800 text-white rounded-md hover:bg-red-700 transition-all duration-300"
+            >
+              {isSubmitting ? "Submitting..." : "Send Message"}
+            </button>
+          </div>
+        </form>
+      </div>
 
-        {/* Submit Button */}
-        <div className="mt-4">
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className="px-6 py-3 bg-red-800 text-white rounded-md hover:bg-red-700 transition-all duration-300"
-          >
-            {isSubmitting ? "Submitting..." : "Send Message"}
-          </button>
-        </div>
-
-        {/* Form Status */}
-        {formStatus && (
-          <p className="mt-4 text-green-600 dark:text-green-400 font-medium">
-            {formStatus}
-          </p>
-        )}
-      </form>
-
-      {/* =========== SOCIAL ICONS =========== */}
-      <div className="mt-12">
+      {/* SOCIAL ICONS */}
+      <div className="mt-16 flex items-center justify-between">
         <a
           href={user_info.socials.github}
-          className="flex gap-4 text-zinc-600 dark:text-zinc-300 hover:text-zinc-700 transition-all duration-300"
+          className="flex flex-col text-zinc-600 dark:text-zinc-300 hover:text-zinc-700 transition-all duration-300"
         >
           <FaGithub className="self-center text-lg text-red-800 dark:text-red-500" />
-          <span className="self-center">Follow on Github</span>
+          <span className="self-center">github</span>
         </a>
 
         <a
           href={user_info.socials.twitter}
-          className="flex gap-4 text-zinc-600 dark:text-zinc-300 hover:text-zinc-700 transition-all duration-300 mt-4"
+          className="flex flex-col text-zinc-600 dark:text-zinc-300 hover:text-zinc-700 transition-all duration-300 "
         >
           <FaSquareXTwitter className="self-center text-lg text-red-800 dark:text-red-500" />
-          <span className="self-center">Follow on X</span>
+          <span className="self-center">X(twitter)</span>
         </a>
 
         <a
           href={user_info.socials.linkedin}
-          className="flex gap-4 text-zinc-600 dark:text-zinc-300 hover:text-zinc-700 transition-all duration-300 mt-4"
+          className="flex flex-col text-zinc-600 dark:text-zinc-300 hover:text-zinc-700 transition-all duration-300 "
         >
           <FaLinkedin className="self-center text-lg text-red-800 dark:text-red-500" />
-          <span className="self-center">Follow on Linkedin</span>
+          <span className="self-center">linkedin</span>
         </a>
 
-        <hr className="mt-6 w-72 border dark:border-zinc-800" />
-
-        {/* Email */}
         <a
           href={`mailto:${user_info.main.email}`}
-          className="flex mt-6 text-zinc-600 dark:text-zinc-300 hover:dark:text-zinc-300 gap-4 hover:text-zinc-700 transition-all duration-300"
+          className="flex flex-col text-zinc-600 dark:text-zinc-300 hover:dark:text-zinc-300 hover:text-zinc-700 transition-all duration-300"
         >
           <MdEmail className="self-center text-lg text-red-800 dark:text-red-500" />
-          <span>{user_info.main.email}</span>
+          <span>email</span>
         </a>
       </div>
     </section>
