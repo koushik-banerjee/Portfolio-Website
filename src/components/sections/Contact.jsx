@@ -3,9 +3,9 @@ import { FaSquareXTwitter, FaLinkedin } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { useState, useRef, useEffect } from "react";
-import emailjs from '@emailjs/browser';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import emailjs from "@emailjs/browser";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Contact() {
   const formRef = useRef();
@@ -43,18 +43,18 @@ function Contact() {
         name: formData.name,
         email: formData.email,
         message: formData.message,
-        time: time
+        time: time,
       };
 
       await emailjs.send(
-        'service_w62ncsa',
-        'template_wmjxkxq',
+        "service_w62ncsa",
+        "template_wmjxkxq",
         templateParams,
-        'C_YyGp_TcFPgYx-zu'
+        "C_YyGp_TcFPgYx-zu"
       );
 
       // Show success toast
-      toast.success('Message sent successfully!', {
+      toast.success("Message sent successfully!", {
         position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
@@ -69,9 +69,9 @@ function Contact() {
         message: "",
       });
     } catch (error) {
-      console.error('Error sending email:', error);
+      console.error("Error sending email:", error);
       // Show error toast
-      toast.error('Failed to send message.', {
+      toast.error("Failed to send message.", {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -98,7 +98,7 @@ function Contact() {
         pauseOnHover
         theme="colored"
       />
-      
+
       {/* TITLE */}
       <h4 className="text-5xl font-bold text-zinc-900 dark:text-zinc-100">
         Let&apos;s Get in Touch:{" "}
@@ -109,11 +109,46 @@ function Contact() {
 
       {/* DESCRIPTION + FORM */}
       <div className="mt-12 flex flex-col lg:flex-row gap-12">
-        {/* Description */}
-        <p className="leading-7 text-base text-zinc-600 dark:text-zinc-300 font-light w-full lg:w-1/2">
-          {user_info.contact.description}
-        </p>
+        <div className="flex flex-col w-full lg:w-1/2 gap-2">
+          {/* Description */}
+          <p className="leading-7 text-base text-zinc-600 dark:text-zinc-300 font-light">
+            {user_info.contact.description}
+          </p>
+          {/* SOCIAL ICONS */}
+          <div className="flex items-center gap-3">
+            <a
+              href={user_info.socials.github}
+              className="flex flex-col text-zinc-600 dark:text-zinc-300 hover:text-zinc-700 transition-all duration-300"
+            >
+              <FaGithub className="self-center text-xl text-red-800 dark:text-red-500 transition hover:scale-[150%]" />
+              {/* <span className="self-center">github</span> */}
+            </a>
 
+            <a
+              href={user_info.socials.twitter}
+              className="flex flex-col text-zinc-600 dark:text-zinc-300 hover:text-zinc-700 transition-all duration-300 "
+            >
+              <FaSquareXTwitter className="self-center text-xl text-red-800 dark:text-red-500 transition hover:scale-[150%]" />
+              {/* <span className="self-center">X(twitter)</span> */}
+            </a>
+
+            <a
+              href={user_info.socials.linkedin}
+              className="flex flex-col text-zinc-600 dark:text-zinc-300 hover:text-zinc-700 transition-all duration-300 "
+            >
+              <FaLinkedin className="self-center text-xl text-red-800 dark:text-red-500 transition hover:scale-[150%]" />
+              {/* <span className="self-center">linkedin</span> */}
+            </a>
+
+            <a
+              href={`mailto:${user_info.main.email}`}
+              className="flex flex-col text-zinc-600 dark:text-zinc-300 hover:dark:text-zinc-300 hover:text-zinc-700 transition-all duration-300"
+            >
+              <MdEmail className="self-center text-xl text-red-800 dark:text-red-500 transition hover:scale-[150%]" />
+              {/* <span>email</span> */}
+            </a>
+          </div>
+        </div>
         {/* Form */}
         <form ref={formRef} onSubmit={handleSubmit} className="w-full lg:w-1/2">
           <div className="mb-4">
@@ -161,41 +196,6 @@ function Contact() {
             </button>
           </div>
         </form>
-      </div>
-
-      {/* SOCIAL ICONS */}
-      <div className="mt-16 flex items-center justify-between">
-        <a
-          href={user_info.socials.github}
-          className="flex flex-col text-zinc-600 dark:text-zinc-300 hover:text-zinc-700 transition-all duration-300"
-        >
-          <FaGithub className="self-center text-lg text-red-800 dark:text-red-500" />
-          <span className="self-center">github</span>
-        </a>
-
-        <a
-          href={user_info.socials.twitter}
-          className="flex flex-col text-zinc-600 dark:text-zinc-300 hover:text-zinc-700 transition-all duration-300 "
-        >
-          <FaSquareXTwitter className="self-center text-lg text-red-800 dark:text-red-500" />
-          <span className="self-center">X(twitter)</span>
-        </a>
-
-        <a
-          href={user_info.socials.linkedin}
-          className="flex flex-col text-zinc-600 dark:text-zinc-300 hover:text-zinc-700 transition-all duration-300 "
-        >
-          <FaLinkedin className="self-center text-lg text-red-800 dark:text-red-500" />
-          <span className="self-center">linkedin</span>
-        </a>
-
-        <a
-          href={`mailto:${user_info.main.email}`}
-          className="flex flex-col text-zinc-600 dark:text-zinc-300 hover:dark:text-zinc-300 hover:text-zinc-700 transition-all duration-300"
-        >
-          <MdEmail className="self-center text-lg text-red-800 dark:text-red-500" />
-          <span>email</span>
-        </a>
       </div>
     </section>
   );
